@@ -27,9 +27,15 @@
 
             this._map = map;
 
-            L.DomEvent.on(this.link, 'click', this.options.onClick.bind(this, map), this);
+            L.DomEvent.on(this.link, 'click', this._clickHandler, this);
 
             return container;
+        },
+
+        _clickHandler: function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.options.onClick(this._map);
         }
     });
 
