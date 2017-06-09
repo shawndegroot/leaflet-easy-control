@@ -1,0 +1,22 @@
+{
+  "name": "leaflet-easy-control",
+  "version": "1.0.0",
+  "description": "An easy way to add a leaflet control to a map.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tesera/leaflet-easy-control.git"
+  },
+  "author": "Yves Richard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tesera/leaflet-easy-control/issues"
+  },
+  "homepage": "https://github.com/tesera/leaflet-easy-control#readme"
+}
