@@ -21,7 +21,7 @@
         onAdd: function (map) {
             var container = L.DomUtil.create('div', 'leaflet-control-easycontrol-bar leaflet-bar leaflet-control');
 
-            this.link = L.DomUtil.create('a', 'leaflet-control-easycontrol leaflet-bar-part', container);
+            this.link = L.DomUtil.create('a', 'leaflet-control-easycontrol leaflet-bar-part ' + this.options.customClass, container);
             this.link.innerText = this.options.label;
             this.link.href = '#';
 
