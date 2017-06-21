@@ -21,21 +21,30 @@
         onAdd: function (map) {
             var container = L.DomUtil.create('div', 'leaflet-control-easycontrol-bar leaflet-bar leaflet-control');
 
-            this.link = L.DomUtil.create('a', 'leaflet-control-easycontrol leaflet-bar-part ' + this.options.customClass, container);
-            this.link.innerText = this.options.label;
-            this.link.href = '#';
+            var link = L.DomUtil.create('a', 'leaflet-control-easycontrol leaflet-bar-part ' + this.options.customClass, container);
+            link.innerText = this.options.label;
+            link.href = '#';
 
+            var htmlDataset = this.options.htmlDataset;
+            if (htmlDataset) {
+                Object.keys(htmlDataset).forEach(function (key) {
+                    link.setAttribute('data-' + key, htmlDataset[key]);
+                });
+            }
+
+            this.link = link;
             this._map = map;
 
             L.DomEvent.on(this.link, 'click', this._clickHandler, this);
+
+            this.options.onReady && this.options.onReady();
 
             return container;
         },
 
         _clickHandler: function (e) {
             e.preventDefault();
-            e.stopPropagation();
-            this.options.onClick(this._map);
+            if (this.options.onClick) this.options.onClick(this._map);
         }
     });
 
